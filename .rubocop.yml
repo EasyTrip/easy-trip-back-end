@@ -4,6 +4,7 @@ AllCops:
   TargetRubyVersion: 2.6.4
   Exclude:
     - bin/**
+    - db/schema.rb
 
 Documentation:
   Enabled: false
@@ -12,9 +13,9 @@ Naming/FileName:
   Exclude:
     - Gemfile
 
-#Metrics/MethodLength:
-#  Exclude:
-#    - db/migrate/**
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/**
 
 Metrics/BlockLength:
   Exclude:
