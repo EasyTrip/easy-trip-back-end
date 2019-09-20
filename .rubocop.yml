@@ -1,0 +1,24 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.6.4
+  Exclude:
+    - bin/**
+
+Documentation:
+  Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - Gemfile
+
+#Metrics/MethodLength:
+#  Exclude:
+#    - db/migrate/**
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Metrics/LineLength:
+  Max: 120
