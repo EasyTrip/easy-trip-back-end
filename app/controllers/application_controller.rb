@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
 
   def authenticate_request!
     @current_user = Authentication::CurrentUser.call request.headers['Authorization']
-  rescue Authentication::AuthenticationError => e
+  rescue AuthenticationError => e
     render json: { errors: [e.message] }, status: :unauthorized
   end
 end
