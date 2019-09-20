@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    post 'auth/login' => 'authentication#login'
+
+    resources :users, only: %i[index create update show] do
+      collection do
+        get :current
+      end
+    end
+  end
 end
