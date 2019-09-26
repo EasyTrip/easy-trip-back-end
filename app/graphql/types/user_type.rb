@@ -11,8 +11,6 @@ module Types
 
     field :full_name, String, null: false
 
-    def full_name
-      object.full_name
-    end
+    delegate :full_name, to: :object
   end
 end

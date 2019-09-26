@@ -31,3 +31,4 @@
 
 en:
   hello: "Hello world"
+  production_warning: "The Rails environment is running in production mode!"

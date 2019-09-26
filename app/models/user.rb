@@ -16,7 +16,7 @@ class User < ApplicationRecord
   def sign_in
     self.sign_in_count += 1
     self.last_sign_in_at = current_sign_in_at
-    self.current_sign_in_at = Time.now
+    self.current_sign_in_at = Time.current
     save
   end
 end

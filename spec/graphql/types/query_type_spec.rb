@@ -2,7 +2,7 @@
 
 RSpec.describe Types::QueryType do
   describe 'users' do
-    subject { EasyTripBackEndSchema.execute(query).as_json }
+    subject(:result) { EasyTripBackEndSchema.execute(query).as_json }
 
     let!(:users) { create_pair :user }
     let(:users_hash) do
@@ -26,7 +26,7 @@ RSpec.describe Types::QueryType do
     end
 
     it 'returns all users' do
-      expect(subject.dig('data', 'users')).to match_array(users_hash)
+      expect(result.dig('data', 'users')).to match_array(users_hash)
     end
   end
 end
