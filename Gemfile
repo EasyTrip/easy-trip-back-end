@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.4'
+ruby '2.6.3'
 
 gem 'rails', '~> 6.0.0'
 
@@ -17,9 +17,12 @@ gem 'jwt'
 # gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'fast_jsonapi'
+gem 'graphql'
 gem 'rack-cors'
 
 group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop'
@@ -32,6 +35,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'graphiql-rails'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -39,7 +43,6 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'faker'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
 end

@@ -10,7 +10,7 @@ class User < ApplicationRecord
   scope :contacts, ->(user) { where.not(id: user.id) }
 
   def full_name
-    "#{first_name} #{last_name}"
+    [first_name, last_name].compact.join(' ')
   end
 
   def sign_in
