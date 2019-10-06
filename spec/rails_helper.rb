@@ -3,7 +3,7 @@
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
-abort(I18n.t(:production_warning)) if Rails.env.production?
+abort(I18n.t(:rspec_production_warning)) if Rails.env.production?
 require 'rspec/rails'
 
 begin
