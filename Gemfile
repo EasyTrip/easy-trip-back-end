@@ -17,6 +17,7 @@ gem 'jwt'
 # gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'graphql'
+gem 'money-rails'
 gem 'rack-cors'
 
 group :development, :test do
