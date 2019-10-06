@@ -5,10 +5,6 @@ class GraphqlController < ApplicationController
     variables = ensure_hash(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
-    context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
-    }
     result = EasyTripBackEndSchema.execute(query,
                                            variables: variables,
                                            context: context,
@@ -21,6 +17,10 @@ class GraphqlController < ApplicationController
   end
 
   private
+
+  def context
+    { current_user: current_user }
+  end
 
   # Handle form data, JSON body, or a blank value
   def ensure_hash(ambiguous_param)

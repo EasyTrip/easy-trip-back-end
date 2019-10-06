@@ -75,8 +75,6 @@ GEM
       railties (>= 4.2.0)
     faker (2.4.0)
       i18n (~> 1.6.0)
-    fast_jsonapi (1.5)
-      activesupport (>= 4.2)
     ffi (1.11.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -226,7 +224,6 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails
   faker
-  fast_jsonapi
   graphiql-rails
   graphql
   jwt
@@ -250,7 +247,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.6.5p114
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

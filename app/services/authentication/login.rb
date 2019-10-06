@@ -3,13 +3,11 @@
 module Authentication
   class Login < BaseService
     def call
-      user = User.find_by email: email
-      if user&.authenticate password
-        user.sign_in
-        { json: token(user), status: :ok }
-      else
-        { json: { errors: ['Invalid Username/Password'] }, status: :unauthorized }
-      end
+      user = User.find_by(email: email)
+      raise AuthenticationError unless user&.authenticate(password)
+
+      user.sign_in
+      token(user)
     end
 
     private
@@ -27,7 +25,7 @@ module Authentication
       return unless user&.id
 
       exp = EXPIRATION_DAYS.days.from_now.to_i
-      { auth_token: JsonWebToken.encode(user_id: user.id, exp: exp) }
+      JsonWebToken.encode(user_id: user.id, exp: exp)
     end
   end
 end

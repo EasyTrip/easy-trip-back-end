@@ -2,13 +2,7 @@
 
 module Types
   class QueryType < Types::BaseObject
-    field :users,
-          [Types::UserType],
-          null: false,
-          description: 'Returns a list of users in the easy trip'
-
-    def users
-      User.all
-    end
+    field :current_user, resolver: Queries::CurrentUserQuery
+    field :users, resolver: Queries::UsersQuery
   end
 end
