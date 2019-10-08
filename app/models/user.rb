@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :trips, foreign_key: :creator_id, dependent: :destroy, inverse_of: :creator
+  has_many :memberships, as: :member, dependent: :destroy
 
   validates :email, :first_name, :last_name, presence: true
 

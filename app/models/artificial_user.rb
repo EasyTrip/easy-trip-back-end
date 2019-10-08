@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 class ArtificialUser < ApplicationRecord
-  belongs_to :trip
+  has_many :memberships, as: :member, dependent: :destroy
 end
