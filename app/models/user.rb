@@ -8,8 +8,6 @@ class User < ApplicationRecord
 
   validates :email, :first_name, :last_name, presence: true
 
-  scope :contacts, ->(user) { where.not(id: user.id) }
-
   def full_name
     [first_name, last_name].compact.join(' ')
   end
