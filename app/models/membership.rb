@@ -5,4 +5,5 @@ class Membership < ApplicationRecord
   belongs_to :member, polymorphic: true
 
   validates :member_type, inclusion: { in: [User, ArtificialUser].map(&:to_s) }
+  validates :member_id, uniqueness: { scope: %i[trip_id member_type] }
 end
