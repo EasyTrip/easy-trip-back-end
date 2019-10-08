@@ -2,6 +2,8 @@
 
 # encoding : utf-8
 
+Money.locale_backend = :i18n
+
 MoneyRails.configure do |config|
   config.default_currency = :uah
 
