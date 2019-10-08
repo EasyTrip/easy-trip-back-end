@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  has_many :trips, foreign_key: :creator_id, dependent: :destroy, inverse_of: :creator
+
   validates :email, :first_name, :last_name, presence: true
 
   scope :contacts, ->(user) { where.not(id: user.id) }
