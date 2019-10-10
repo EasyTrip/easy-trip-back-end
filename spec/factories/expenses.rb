@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :expense do
-    trip { nil }
+    trip
     name { 'MyString' }
     description { 'MyText' }
   end

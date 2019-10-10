@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :payment do
-    partaker { nil }
+    partaker
   end
 end

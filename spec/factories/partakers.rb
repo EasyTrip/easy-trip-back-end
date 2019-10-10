@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :partaker do
-    expense { nil }
-    membership { nil }
+    expense
+    membership
   end
 end
