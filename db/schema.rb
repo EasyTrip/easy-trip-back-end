@@ -39,8 +39,10 @@ ActiveRecord::Schema.define(version: 2019_10_10_124215) do
   create_table "artificial_users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
+    t.bigint "creator_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_id"], name: "index_artificial_users_on_creator_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -108,6 +110,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_124215) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "artificial_users", "users", column: "creator_id"
   add_foreign_key "expenses", "trips"
   add_foreign_key "memberships", "trips"
   add_foreign_key "partakers", "expenses"

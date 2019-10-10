@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Membership < ApplicationRecord
+  has_many :partakers, dependent: :destroy
   belongs_to :trip
   belongs_to :member, polymorphic: true
 
