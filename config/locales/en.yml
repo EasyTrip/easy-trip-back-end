@@ -30,4 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  rspec_production_warning: "The Rails environment is running in production mode!"
+  rspec:
+    warnings:
+      production_warning: "The Rails environment is running in production mode!"

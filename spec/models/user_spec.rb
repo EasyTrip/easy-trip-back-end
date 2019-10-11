@@ -13,6 +13,10 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:last_name) }
   end
 
+  describe 'secure password' do
+    it { is_expected.to have_secure_password }
+  end
+
   describe '#full_name' do
     subject!(:user) { create(:user) }
 
