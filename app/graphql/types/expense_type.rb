@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
 module Types
-  class TripType < Types::BaseObject
+  class ExpenseType < Types::BaseObject
     field :id, ID, null: false
     field :name, String, null: false
     field :description, String, null: true
-    field :start_date, GraphQL::Types::ISO8601DateTime, null: true
-    field :finish_date, GraphQL::Types::ISO8601DateTime, null: true
+    field :price, Integer, null: false
+    field :price_currency, String, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: true
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: true
 
-    field :expenses, [Types::ExpenseType], null: false
-    field :creator, UserType, null: false
+    field :trip, TripType, null: false
   end
 end
