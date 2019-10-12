@@ -9,5 +9,8 @@ module Types
     # trips
     field :trips, resolver: Queries::TripsQuery
     field :trip, resolver: Queries::TripQuery
+    # expenses
+    field :espenses, resolver: Queries::ExpenseQuery
+    field :expense, resolver: Queries::ExpenseQuery
   end
 end
