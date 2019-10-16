@@ -3,7 +3,8 @@
 FactoryBot.define do
   factory :expense do
     trip
-    name { 'MyString' }
-    description { 'MyText' }
+    name { Faker::Food.dish }
+    description { Faker::Food.description }
+    price { Faker::Number.decimal(l_digits: 2) }
   end
 end
