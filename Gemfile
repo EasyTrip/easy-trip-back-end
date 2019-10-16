@@ -20,6 +20,11 @@ gem 'graphql'
 gem 'money-rails'
 gem 'rack-cors'
 
+# Add this to fix issue from v 4.0. Should be removed after fix in
+# https://github.com/rails/sprockets-rails/issues/444
+# https://github.com/rails/sprockets-rails/issues/443
+gem 'sprockets', '~>3.0'
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'

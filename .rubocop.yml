@@ -13,7 +13,7 @@ AllCops:
     - bin/**
     - db/schema.rb
 
-Documentation:
+Style/Documentation:
   Enabled: false
 
 Naming/FileName:
