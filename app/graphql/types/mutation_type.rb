@@ -2,7 +2,9 @@
 
 module Types
   class MutationType < Types::BaseObject
-    field :sign_in, mutation: Mutations::SignInMutation
+    # auth
+    # field :sign_up, mutation: Mutations
+    field :sign_in, mutation: Mutations::Authentication::SignInMutation
     # trips
     field :create_trip, mutation: Mutations::Trips::CreateTrip
     field :update_trip, mutation: Mutations::Trips::UpdateTrip

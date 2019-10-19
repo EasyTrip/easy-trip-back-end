@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 module Authentication
-  class Login < BaseService
+  class SignIn < BaseService
     def call
-      user = User.find_by(email: email)
-      raise AuthenticationError unless user&.authenticate(password)
+      user = User.find_by!(email: email)
+      raise AuthenticationError unless user.authenticate(password)
 
       user.sign_in
-      token(user)
+      { token: token(user),
+        user: user }
     end
 
     private
@@ -22,8 +23,6 @@ module Authentication
     EXPIRATION_DAYS = 7
 
     def token(user)
-      return unless user&.id
-
       exp = EXPIRATION_DAYS.days.from_now.to_i
       JsonWebToken.encode(user_id: user.id, exp: exp)
     end
