@@ -190,6 +190,8 @@ GEM
     rubocop-rails (2.3.2)
       rack (>= 1.1)
       rubocop (>= 0.72.0)
+    rubocop-rake (0.4.0)
+      rubocop
     rubocop-rspec (1.36.0)
       rubocop (>= 0.68.1)
     rubocop-thread_safety (0.3.4)
@@ -248,6 +250,7 @@ DEPENDENCIES
   rubocop-i18n
   rubocop-performance
   rubocop-rails
+  rubocop-rake
   rubocop-rspec
   rubocop-thread_safety
   shoulda-matchers
