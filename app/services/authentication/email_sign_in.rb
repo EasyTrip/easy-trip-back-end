@@ -3,9 +3,10 @@
 module Authentication
   class EmailSignIn < BaseService
     def call
-      user = User.find_by!(email: email)
-      raise AuthenticationError unless user.authenticate(password)
+      email_identity = EmailIdentity.find_by!(email: email)
+      raise AuthenticationError unless email_identity.authenticate(password)
 
+      user = email_identity.user
       user.sign_in
       { token: token(user),
         user: user }
