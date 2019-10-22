@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_10_124215) do
+ActiveRecord::Schema.define(version: 2019_10_22_123020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2019_10_10_124215) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["creator_id"], name: "index_artificial_users_on_creator_id"
+  end
+
+  create_table "email_identities", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_email_identities_on_email", unique: true
+    t.index ["user_id"], name: "index_email_identities_on_user_id", unique: true
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -96,10 +106,8 @@ ActiveRecord::Schema.define(version: 2019_10_10_124215) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "password_digest"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -111,6 +119,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_124215) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "artificial_users", "users", column: "creator_id"
+  add_foreign_key "email_identities", "users"
   add_foreign_key "expenses", "trips"
   add_foreign_key "memberships", "trips"
   add_foreign_key "partakers", "expenses"

@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_secure_password
-
   has_many :trips, foreign_key: :creator_id, dependent: :destroy, inverse_of: :creator
   has_many :artificial_users, foreign_key: :creator_id, dependent: :destroy, inverse_of: :creator
   has_many :memberships, as: :member, dependent: :destroy
+  has_one :email_identity, dependent: :destroy
 
-  validates :email, :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :email_identity, presence: true
+
+  delegate :email, to: :email_identity
 
   def full_name
     [first_name, last_name].compact.join(' ')

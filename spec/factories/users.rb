@@ -2,9 +2,11 @@
 
 FactoryBot.define do
   factory :user do
-    sequence(:email) { |n| "user-#{n}@example.com" }
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    password { '1q2w3e4r' }
+
+    after(:build) do |user|
+      user.email_identity ||= build(:email_identity, user: user)
+    end
   end
 end

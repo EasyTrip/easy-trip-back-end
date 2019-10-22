@@ -5,16 +5,13 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:trips).dependent(:destroy).inverse_of(:creator) }
     it { is_expected.to have_many(:artificial_users).dependent(:destroy).inverse_of(:creator) }
     it { is_expected.to have_many(:memberships).dependent(:destroy) }
+    it { is_expected.to have_one(:email_identity).dependent(:destroy) }
   end
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_presence_of(:first_name) }
     it { is_expected.to validate_presence_of(:last_name) }
-  end
-
-  describe 'secure password' do
-    it { is_expected.to have_secure_password }
+    it { is_expected.to validate_presence_of(:email_identity) }
   end
 
   describe '#full_name' do
