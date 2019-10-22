@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Authentication
-  class SignIn < BaseService
+  class EmailSignIn < BaseService
     def call
       user = User.find_by!(email: email)
       raise AuthenticationError unless user.authenticate(password)

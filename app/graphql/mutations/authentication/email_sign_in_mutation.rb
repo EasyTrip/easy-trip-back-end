@@ -2,7 +2,7 @@
 
 module Mutations
   module Authentication
-    class SignInMutation < Mutations::BaseMutation
+    class EmailSignInMutation < Mutations::BaseMutation
       argument :email, String, required: true
       argument :password, String, required: true
 
@@ -10,7 +10,7 @@ module Mutations
       field :user, Types::UserType, null: false
 
       def resolve(email:, password:)
-        ::Authentication::SignIn.call(email, password)
+        ::Authentication::EmailSignIn.call(email, password)
       end
     end
   end

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
 
   def current_user
     @current_user = Authentication::CurrentUser.call request.headers['Authorization']
-  rescue AuthenticationError => e
-    render json: { errors: [e.message] }, status: :unauthorized
+  rescue AuthenticationError
+    @current_user = Guest.new
   end
 end
