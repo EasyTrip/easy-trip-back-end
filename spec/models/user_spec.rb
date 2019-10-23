@@ -40,7 +40,7 @@ RSpec.describe User, type: :model do
 
       it 'sets current time' do
         expect { sign_in }.to change(user, :current_sign_in_at)
-                                .from(yesterday).to(current_time)
+          .from(yesterday).to(current_time)
       end
     end
   end

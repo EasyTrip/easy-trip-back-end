@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  rolify
+
   has_many :trips, foreign_key: :creator_id, dependent: :destroy, inverse_of: :creator
   has_many :artificial_users, foreign_key: :creator_id, dependent: :destroy, inverse_of: :creator
   has_many :memberships, as: :member, dependent: :destroy

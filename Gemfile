@@ -19,6 +19,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'graphql'
 gem 'money-rails'
 gem 'rack-cors'
+gem 'rolify'
 
 # Add this to fix issue from v 4.0. Should be removed after fix in
 # https://github.com/rails/sprockets-rails/issues/444
