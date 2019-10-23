@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
+  include Pundit
+
   private
 
   def current_user
-    @current_user = Authentication::CurrentUser.call request.headers['Authorization']
+    @current_user ||= Authentication::CurrentUser.call request.headers['Authorization']
   rescue AuthenticationError
-    @current_user = Guest.new
+    @current_user ||= Guest.new
   end
 end

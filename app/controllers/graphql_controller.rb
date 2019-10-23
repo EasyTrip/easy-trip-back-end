@@ -19,7 +19,8 @@ class GraphqlController < ApplicationController
   private
 
   def context
-    { current_user: current_user }
+    { current_user: current_user,
+      pundit: self }
   end
 
   # Handle form data, JSON body, or a blank value

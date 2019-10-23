@@ -12,6 +12,7 @@ module Mutations
       argument :finish_date, GraphQL::Types::ISO8601DateTime, required: false
 
       def resolve(creator_id: nil, **attributes)
+        authorize(Trip, :create?)
         user = creator_id ? User.find(creator_id) : current_user
         user.trips.create!(attributes)
       end

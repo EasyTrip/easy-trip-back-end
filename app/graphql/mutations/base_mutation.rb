@@ -2,6 +2,8 @@
 
 module Mutations
   class BaseMutation < GraphQL::Schema::Mutation
+    include PunditHelpers
+
     private
 
     def current_user
