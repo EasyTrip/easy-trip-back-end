@@ -3,7 +3,7 @@
 module PunditHelpers
   # if action is not passed, method will try to find corresponding action from receiver's class name
   def authorize(record, action = nil)
-    action ||= guess_action
+    action ||= guess_action!
     context[:pundit].send(:authorize, record, action)
   end
 
@@ -11,7 +11,7 @@ module PunditHelpers
 
   SUPPORTED_ACTIONS = %w[index? show? create? update? destroy?].freeze
 
-  def guess_action
+  def guess_action!
     action = if is_a?(::Mutations::BaseMutation)
                pundit_class_action + '?'
              elsif is_a?(::Queries::BaseQuery)
