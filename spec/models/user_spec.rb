@@ -14,6 +14,10 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:email_identity) }
   end
 
+  describe 'delegation' do
+    it { is_expected.to delegate_method(:email).to(:email_identity) }
+  end
+
   describe '#full_name' do
     subject!(:user) { create(:user) }
 
@@ -36,7 +40,7 @@ RSpec.describe User, type: :model do
 
       it 'sets current time' do
         expect { sign_in }.to change(user, :current_sign_in_at)
-          .from(yesterday).to(current_time)
+                                .from(yesterday).to(current_time)
       end
     end
   end
