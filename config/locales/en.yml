@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  graphql:
+    errors:
+      policy_action: "Cannot find policy action '%{action}' from class '%{class_name}'"
   rspec:
     warnings:
       production_warning: "The Rails environment is running in production mode!"
