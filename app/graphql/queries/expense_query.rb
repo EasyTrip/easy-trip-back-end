@@ -8,6 +8,7 @@ module Queries
     argument :id, ID, required: true
 
     def resolve(id:)
+      authorize Expense
       Expense.find(id)
     end
   end

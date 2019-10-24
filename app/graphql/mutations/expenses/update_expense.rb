@@ -13,6 +13,7 @@ module Mutations
       argument :currency, String, required: false
 
       def resolve(id:, **attributes)
+        authorize Expense
         Expense.find(id).tap { |expense| expense.update!(attributes) }
       end
     end

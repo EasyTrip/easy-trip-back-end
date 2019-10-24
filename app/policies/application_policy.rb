@@ -43,6 +43,10 @@ class ApplicationPolicy
 
   private
 
+  def admin?
+    user.has_role?(Role::ADMIN)
+  end
+
   def guest?
     user.instance_of?(Guest)
   end

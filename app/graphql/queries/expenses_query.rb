@@ -6,6 +6,7 @@ module Queries
     description 'Returns a list of all expenses'
 
     def resolve
+      authorize Expense
       Expense.all
     end
   end

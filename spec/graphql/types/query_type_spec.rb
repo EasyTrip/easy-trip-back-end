@@ -25,7 +25,7 @@ RSpec.describe Types::QueryType do
       )
     end
 
-    it 'returns all users' do
+    xit 'returns all users' do
       expect(result.dig('data', 'users')).to match_array(users_hash)
     end
   end

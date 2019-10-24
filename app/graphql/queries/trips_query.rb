@@ -6,6 +6,7 @@ module Queries
     description 'Returns a list of all trips'
 
     def resolve
+      authorize Trip
       Trip.all
     end
   end

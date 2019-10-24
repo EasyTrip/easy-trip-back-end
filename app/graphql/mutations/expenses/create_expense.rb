@@ -12,6 +12,7 @@ module Mutations
       argument :currency, String, required: false
 
       def resolve(trip_id:, **attributes)
+        authorize Expense
         Trip.find(trip_id).expenses.create!(attributes)
       end
     end

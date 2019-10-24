@@ -8,6 +8,7 @@ module Mutations
       argument :id, ID, required: true
 
       def resolve(id:)
+        authorize Trip
         Trip.find(id).destroy!
       end
     end

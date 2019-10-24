@@ -6,6 +6,7 @@ module Queries
     description 'Returns a list of users in the easy trip'
 
     def resolve
+      authorize User
       User.all
     end
   end

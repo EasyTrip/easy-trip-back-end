@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TripPolicy < ApplicationPolicy
+class ExpensePolicy < ApplicationPolicy
   def index?
     not_guest?
   end

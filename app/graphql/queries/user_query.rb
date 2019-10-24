@@ -8,6 +8,7 @@ module Queries
     argument :id, ID, required: true
 
     def resolve(id:)
+      authorize User
       User.find(id)
     end
   end
