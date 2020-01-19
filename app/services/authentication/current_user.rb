@@ -14,22 +14,22 @@ module Authentication
 
     private
 
-    attr_reader :token
+    attr_reader :auth_token
 
-    def initialize(token)
-      @token = token
+    def initialize(auth_token)
+      @auth_token = auth_token
     end
 
     def http_token
-      @http_token ||= token&.split(' ')&.last
+      @http_token ||= auth_token&.split(' ')&.last
     end
 
-    def auth_token
-      @auth_token ||= JsonWebToken.decode(http_token)
+    def payload
+      @payload ||= JsonWebToken.decode(http_token)
     end
 
     def user_id_in_token?
-      http_token && auth_token && auth_token[:user_id]
+      http_token && payload && payload[:user_id]
     end
   end
 end

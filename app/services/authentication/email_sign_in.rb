@@ -8,7 +8,7 @@ module Authentication
 
       user = email_identity.user
       user.sign_in
-      { token: token(user),
+      { auth_token: auth_token(user),
         user: user }
     end
 
@@ -23,7 +23,7 @@ module Authentication
 
     EXPIRATION_DAYS = 7
 
-    def token(user)
+    def auth_token(user)
       exp = EXPIRATION_DAYS.days.from_now.to_i
       JsonWebToken.encode(user_id: user.id, exp: exp)
     end
