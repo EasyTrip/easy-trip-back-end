@@ -3,7 +3,7 @@
 module Authentication
   class CurrentUser < BaseService
     def call
-      return User.find(auth_token[:user_id]) if user_id_in_token?
+      return User.find(payload[:user_id]) if user_id_in_token?
 
       raise AuthenticationError, 'Not Authenticated'
     rescue JWT::ExpiredSignature
