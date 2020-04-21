@@ -10,6 +10,7 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   TargetRubyVersion: 2.6.5
+  NewCops: enable
   Exclude:
     - bin/**
     - db/schema.rb
