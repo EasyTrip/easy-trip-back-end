@@ -14,10 +14,10 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :email_identity
 
-  def sign_in
+  def sign_in!
     self.sign_in_count += 1
     self.last_sign_in_at = current_sign_in_at
     self.current_sign_in_at = Time.current
-    save
+    save!
   end
 end

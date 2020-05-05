@@ -7,7 +7,7 @@ module Authentication
       raise AuthenticationError unless email_identity.authenticate(password)
 
       user = email_identity.user
-      user.sign_in
+      user.sign_in!
       { auth_token: auth_token(user),
         user: user }
     end

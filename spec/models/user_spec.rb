@@ -18,8 +18,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to delegate_method(:email).to(:email_identity) }
   end
 
-  describe '#sign_in' do
-    subject(:sign_in) { user.sign_in }
+  describe '#sign_in!' do
+    subject(:sign_in) { user.sign_in! }
 
     let!(:user) { create(:user, current_sign_in_at: yesterday) }
     let(:yesterday) { 1.day.ago }
