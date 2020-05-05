@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module PunditHelpers
+  SUPPORTED_ACTIONS = %w[index? show? create? update? destroy?].freeze
+
   # if action is not passed, method will try to find corresponding action from receiver's class name
   def authorize(record, action = nil)
     action ||= guess_action!
@@ -8,8 +10,6 @@ module PunditHelpers
   end
 
   private
-
-  SUPPORTED_ACTIONS = %w[index? show? create? update? destroy?].freeze
 
   def guess_action!
     action = if is_a?(::Mutations::BaseMutation)

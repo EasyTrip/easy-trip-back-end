@@ -1,6 +1,6 @@
 DatabaseConsistencySettings:
   color: true
-  log_level: debug
+  log_level: info
 
 ActiveStorage::Blob:
   key:
