@@ -10,8 +10,8 @@ class RolifyCreateRoles < ActiveRecord::Migration[6.0]
     end
 
     create_table(:users_roles, id: false) do |t|
-      t.references :user, null: false
-      t.references :role, null: false
+      t.references :user, null: false, foreign_key: true
+      t.references :role, null: false, foreign_key: true
 
       t.timestamps
     end

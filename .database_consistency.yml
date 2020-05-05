@@ -1,0 +1,22 @@
+DatabaseConsistencySettings:
+  color: true
+  log_level: debug
+
+ActiveStorage::Blob:
+  key:
+    NullConstraintChecker:
+      enabled: false
+  filename:
+    NullConstraintChecker:
+      enabled: false
+  byte_size:
+    NullConstraintChecker:
+      enabled: false
+  checksum:
+    NullConstraintChecker:
+      enabled: false
+
+ActiveStorage::Attachment:
+  name:
+    NullConstraintChecker:
+      enabled: false

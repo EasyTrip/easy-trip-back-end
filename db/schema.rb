@@ -147,4 +147,6 @@ ActiveRecord::Schema.define(version: 2020_04_21_154810) do
   add_foreign_key "partakers", "memberships"
   add_foreign_key "payments", "partakers"
   add_foreign_key "trips", "users", column: "creator_id"
+  add_foreign_key "users_roles", "roles"
+  add_foreign_key "users_roles", "users"
 end
