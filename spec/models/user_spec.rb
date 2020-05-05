@@ -18,12 +18,6 @@ RSpec.describe User, type: :model do
     it { is_expected.to delegate_method(:email).to(:email_identity) }
   end
 
-  describe '#full_name' do
-    subject!(:user) { create(:user) }
-
-    it { expect(user.full_name).to eq("#{user.first_name} #{user.last_name}") }
-  end
-
   describe '#sign_in' do
     subject(:sign_in) { user.sign_in }
 

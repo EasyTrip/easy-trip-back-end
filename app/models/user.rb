@@ -12,9 +12,7 @@ class User < ApplicationRecord
 
   delegate :email, to: :email_identity
 
-  def full_name
-    [first_name, last_name].compact.join(' ')
-  end
+  accepts_nested_attributes_for :email_identity
 
   def sign_in
     self.sign_in_count += 1

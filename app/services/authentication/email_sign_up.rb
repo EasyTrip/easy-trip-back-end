@@ -3,13 +3,11 @@
 module Authentication
   class EmailSignUp < BaseService
     def call
-      # User will be saved inside EmailIdentity.create! method
-      User.new(first_name: first_name, last_name: last_name).tap do |user|
-        EmailIdentity.create!(email: email,
-                              password: password,
-                              password_confirmation: password_confirmation,
-                              user: user)
-      end
+      User.create!(first_name: first_name,
+                   last_name: last_name,
+                   email_identity_attributes: { email: email,
+                                                password: password,
+                                                password_confirmation: password_confirmation })
     end
 
     private
