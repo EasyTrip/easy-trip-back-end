@@ -9,3 +9,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Authentication::EmailSignUp.call(email: 'admin@example.com',
+                                 first_name: 'admin',
+                                 last_name: 'admin',
+                                 password: 'admin',
+                                 password_confirmation: 'admin')
