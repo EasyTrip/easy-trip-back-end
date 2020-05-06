@@ -18,17 +18,8 @@ jobs:
         with:
           ruby-version: 2.6
 
-      - uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-
       - name: Install gems
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+        run: bundle install rubocop
 
       - name: Rubocop
         run: bundle exec rubocop
