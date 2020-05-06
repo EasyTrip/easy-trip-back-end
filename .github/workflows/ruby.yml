@@ -37,7 +37,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      - name: Build and test
+      - name: Install gems and setup DB
         env:
           PGHOST: 127.0.0.1
           PGUSER: postgres
@@ -49,7 +49,9 @@ jobs:
           bundle install --jobs 4 --retry 3
           bundle exec rails db:create
           bundle exec rails db:migrate
-          bundle exec database_consistency
+
+      - name: Database consistency
+        run: bundle exec database_consistency
 
   rspec:
     runs-on: ubuntu-latest
@@ -81,7 +83,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      - name: Build and test
+      - name: Install gems and setup DB
         env:
           PGHOST: 127.0.0.1
           PGUSER: postgres
@@ -93,4 +95,6 @@ jobs:
           bundle install --jobs 4 --retry 3
           bundle exec rails db:create
           bundle exec rails db:migrate
-          bundle exec rspec
+
+      - name: RSpec
+        run: bundle exec rspec
