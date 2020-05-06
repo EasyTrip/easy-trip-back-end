@@ -41,8 +41,7 @@ jobs:
           RAILS_ENV: test
           PGHOST: localhost
           PGUSER: easy_trip
-        run: |
-          bin/rails db:setup
+        run: bin/rails db:setup
 
       - name: Run tests
         run: bundle exec rake spec
