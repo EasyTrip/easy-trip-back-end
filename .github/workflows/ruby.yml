@@ -97,4 +97,8 @@ jobs:
           bundle exec rails db:migrate
 
       - name: RSpec
+        env:
+          PGHOST: 127.0.0.1
+          PGUSER: postgres
+          RAILS_ENV: test
         run: bundle exec rspec
