@@ -14,10 +14,11 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  rspec:
     runs-on: ubuntu-latest
+
     services:
-      postgres:
+      db:
         image: postgres:11
         ports: ["5432:5432"]
         options: >-
@@ -25,23 +26,24 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
 
-      - name: Install dependencies
-        run: bundle install
-
-      - name: Setup test database
+      - name: Build and test
         env:
-          DATABASE_URL: postgres://postgres:@localhost:5432/easy_trip_test
+          PGHOST: 127.0.0.1
+          PGUSER: postgres
           RAILS_ENV: test
-        run: bin/rails db:prepare
-
-      - name: Run tests
-        run: bundle exec rspec
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+          bundle exec rspec
