@@ -2,13 +2,10 @@
 
 class GraphqlController < ApplicationController
   def execute
-    variables = ensure_hash(params[:variables])
-    query = params[:query]
-    operation_name = params[:operationName]
-    result = EasyTripBackEndSchema.execute(query,
-                                           variables: variables,
+    result = EasyTripBackEndSchema.execute(params[:query],
+                                           variables: ensure_hash(params[:variables]),
                                            context: context,
-                                           operation_name: operation_name)
+                                           operation_name: params[:operationName])
     render json: result
   rescue StandardError => e
     raise e unless Rails.env.development?
@@ -19,19 +16,14 @@ class GraphqlController < ApplicationController
   private
 
   def context
-    { current_user: current_user,
-      pundit: self }
+    { current_user: current_user, pundit: self }
   end
 
   # Handle form data, JSON body, or a blank value
   def ensure_hash(ambiguous_param)
     case ambiguous_param
     when String
-      if ambiguous_param.present?
-        ensure_hash(JSON.parse(ambiguous_param))
-      else
-        {}
-      end
+      ambiguous_param.present? ? ensure_hash(JSON.parse(ambiguous_param)) : {}
     when Hash, ActionController::Parameters
       ambiguous_param
     when nil
@@ -44,7 +36,6 @@ class GraphqlController < ApplicationController
   def handle_error_in_development(error)
     logger.error error.message
     logger.error error.backtrace.join("\n")
-
     render json: { error: { message: error.message, backtrace: error.backtrace }, data: {} },
            status: 500
   end

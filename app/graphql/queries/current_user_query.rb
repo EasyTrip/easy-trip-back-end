@@ -6,7 +6,8 @@ module Queries
     description 'Returns a user based on auth token'
 
     def resolve
-      context[:current_user]
+      authorize User
+      current_user
     end
   end
 end

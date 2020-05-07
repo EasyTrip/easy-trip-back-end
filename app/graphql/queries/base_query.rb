@@ -3,5 +3,6 @@
 module Queries
   class BaseQuery < GraphQL::Schema::Resolver
     include PunditHelpers
+    include SchemaHelpers
   end
 end
