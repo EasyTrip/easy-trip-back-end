@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class MemberUnionType < BaseUnion
+  class MemberUnionType < Types::Base::Union
     description 'Represents User or ArtificialUser'
     possible_types UserType, ArtificialUserType
 

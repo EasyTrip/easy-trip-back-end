@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class ExpenseType < Types::BaseObject
+  class ExpenseType < Types::Base::Object
     field :id, ID, null: false
     field :name, String, null: false
     field :description, String, null: true

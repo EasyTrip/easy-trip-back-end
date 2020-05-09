@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class TripType < Types::BaseObject
+  class TripType < Types::Base::Object
     field :id, ID, null: false
     field :name, String, null: false
     field :description, String, null: true

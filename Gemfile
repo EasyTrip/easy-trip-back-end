@@ -52,6 +52,7 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'rspec-graphql_matchers'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end

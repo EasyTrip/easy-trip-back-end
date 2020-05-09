@@ -1,32 +1,15 @@
 # frozen_string_literal: true
 
 RSpec.describe Types::QueryType do
-  describe 'users' do
-    subject(:result) { EasyTripBackEndSchema.execute(query).as_json }
+  subject { described_class }
 
-    let!(:users) { create_pair :user }
-    let(:users_hash) do
-      users.map do |user|
-        { email: user.email,
-          firstName: user.first_name,
-          lastName: user.last_name }
-      end.as_json
-    end
+  it { is_expected.to have_field(:current_user).of_type('User!') }
+  it { is_expected.to have_field(:users).of_type('[User!]!') }
+  it { is_expected.to have_field(:user).of_type('User!') }
 
-    let(:query) do
-      %(
-        query {
-          users {
-            email,
-            firstName,
-            lastName
-          }
-        }
-      )
-    end
+  it { is_expected.to have_field(:trips).of_type('[Trip!]!') }
+  it { is_expected.to have_field(:trip).of_type('Trip!') }
 
-    xit 'returns all users' do
-      expect(result.dig('data', 'users')).to match_array(users_hash)
-    end
-  end
+  it { is_expected.to have_field(:expenses).of_type('[Expense!]!') }
+  it { is_expected.to have_field(:expense).of_type('Expense!') }
 end
