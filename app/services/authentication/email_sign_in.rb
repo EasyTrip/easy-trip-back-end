@@ -2,6 +2,8 @@
 
 module Authentication
   class EmailSignIn < BaseService
+    EXPIRATION_DAYS = 7
+
     def call
       email_identity = EmailIdentity.find_by!(email: email)
       raise AuthenticationError unless email_identity.authenticate(password)
@@ -20,8 +22,6 @@ module Authentication
       @email = email
       @password = password
     end
-
-    EXPIRATION_DAYS = 7
 
     def auth_token(user)
       exp = EXPIRATION_DAYS.days.from_now.to_i

@@ -40,3 +40,7 @@ RailsI18n:
   Enabled: true
 GetText:
   Enabled: false
+
+# rubocop-rspec
+RSpec/ExampleLength:
+  Max: 20

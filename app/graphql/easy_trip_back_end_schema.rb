@@ -6,4 +6,10 @@ class EasyTripBackEndSchema < GraphQL::Schema
 
   mutation(Types::MutationType)
   query(Types::QueryType)
+
+  AUTHENTICATION_ERROR_CODE = 'AUTHENTICATION_ERROR'
+
+  rescue_from(Pundit::NotAuthorizedError) do |e|
+    raise GraphQL::ExecutionError.new(e.message, extensions: { code: AUTHENTICATION_ERROR_CODE })
+  end
 end
