@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class MutationType < Types::Base::Object
+  class MutationType < GraphQL::Schema::Object
     # auth
     field :email_sign_up, mutation: Mutations::Authentication::EmailSignUpMutation
     field :email_sign_in, mutation: Mutations::Authentication::EmailSignInMutation

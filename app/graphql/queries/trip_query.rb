@@ -8,7 +8,6 @@ module Queries
     argument :id, ID, required: true
 
     def resolve(id:)
-      authorize Trip
       Trip.find(id)
     end
   end

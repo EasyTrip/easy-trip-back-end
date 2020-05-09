@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class QueryType < Types::Base::Object
+  class QueryType < GraphQL::Schema::Object
     # users
     field :current_user, resolver: Queries::CurrentUserQuery
     field :users, resolver: Queries::UsersQuery
