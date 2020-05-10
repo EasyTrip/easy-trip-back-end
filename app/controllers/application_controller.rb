@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
   private
 
   def current_user
-    @current_user ||= Authentication::CurrentUser.call request.headers['Authorization']
+    @current_user ||= Authentication::CurrentUser.call(request.headers['Authorization'])
   rescue AuthenticationError
     @current_user ||= Guest.new
   end
