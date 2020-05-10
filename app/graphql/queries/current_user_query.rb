@@ -6,6 +6,7 @@ module Queries
     description 'Returns a user based on auth token'
 
     def resolve
+      authorize User
       current_user
     end
   end

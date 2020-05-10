@@ -7,7 +7,7 @@ module Queries
 
     def resolve
       authorize Trip
-      Trip.all
+      current_user.trips
     end
   end
 end

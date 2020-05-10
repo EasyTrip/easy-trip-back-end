@@ -8,7 +8,7 @@ module Queries
     argument :id, ID, required: true
 
     def resolve(id:)
-      Trip.find(id)
+      Trip.find(id).tap { |trip| authorize(trip) }
     end
   end
 end

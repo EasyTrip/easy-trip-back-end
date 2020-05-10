@@ -13,9 +13,5 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
     field :trips, [TripType], null: false
-
-    def self.authorized?(_object, context)
-      context[:pundit].send(:authorize, User, 'show?')
-    end
   end
 end
