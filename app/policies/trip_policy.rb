@@ -26,4 +26,14 @@ class TripPolicy < ApplicationPolicy
   def accessible?
     record.creator == user || admin?
   end
+
+  class Scope < Scope
+    def resolve
+      if user.has_role?(:admin)
+        scope.all
+      else
+        scope.where(creator: user)
+      end
+    end
+  end
 end

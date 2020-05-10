@@ -7,7 +7,7 @@ module Queries
 
     def resolve
       authorize Trip
-      current_user.trips
+      TripPolicy::Scope.new(current_user, Trip).resolve
     end
   end
 end

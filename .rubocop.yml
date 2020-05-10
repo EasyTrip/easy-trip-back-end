@@ -44,3 +44,10 @@ GetText:
 # rubocop-rspec
 RSpec/ExampleLength:
   Max: 20
+
+# rubocop doesn't understand custom example group 'permissions'
+# we can remove this exclusion after issue is resolved
+# https://github.com/rubocop-hq/rubocop-rspec/issues/333
+Rspec/RepeatedExample:
+  Exclude:
+    - spec/policies/**
