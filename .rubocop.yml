@@ -48,6 +48,18 @@ RSpec/ExampleLength:
 # rubocop doesn't understand custom example group 'permissions'
 # we can remove this exclusion after issue is resolved
 # https://github.com/rubocop-hq/rubocop-rspec/issues/333
-Rspec/RepeatedExample:
+RSpec/RepeatedExample:
   Exclude:
     - spec/policies/**
+
+RSpec/MessageSpies:
+  Description: Use receive instead of have_received.
+  EnforcedStyle: receive
+
+RSpec/FilePath:
+  Exclude:
+    - 'spec/requests/**/*.rb'
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/requests/**/*.rb'

@@ -6,15 +6,14 @@ module GraphqlRequestHelpers
     gql_request(query, headers: headers)
   end
 
-  def gql_request(query, headers: nil)
-    post '/graphql', params: { query: query }, headers: headers
+  def gql_request(query, variables: nil, operation_name: nil, headers: nil)
+    params = { query: query, variables: variables, operationName: operation_name }.compact
+    post '/graphql', params: params, headers: headers
   end
 
   def json
     JSON.parse(response.body).with_indifferent_access
   end
-
-  private
 
   def valid_headers(user)
     exp = Authentication::EmailSignIn::EXPIRATION_DAYS.days.from_now.to_i
