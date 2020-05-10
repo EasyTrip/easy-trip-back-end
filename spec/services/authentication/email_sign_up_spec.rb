@@ -18,7 +18,7 @@ describe Authentication::EmailSignUp do
 
     context 'with valid parameters' do
       it 'creates new user' do
-        expect { sign_up }.to change { User.count }.by 1
+        expect { sign_up }.to change(User, :count).by 1
       end
 
       it 'returns user' do
