@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Queries::CurrentUserQuery, type: :request do
+describe Queries::CurrentUserQuery, type: :request do
   let(:query) do
     <<~GQL
       query {

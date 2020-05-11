@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe ArtificialUser, type: :model do
+describe ArtificialUser, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:memberships).dependent(:destroy) }
     it { is_expected.to belong_to(:creator).class_name(User.name).inverse_of(:artificial_users) }

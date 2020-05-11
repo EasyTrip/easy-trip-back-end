@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Types::MutationType do
+describe Types::MutationType do
   subject { described_class }
 
   it { is_expected.to have_field(:email_sign_up).of_type('User') }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Membership, type: :model do
+describe Membership, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:partakers).dependent(:destroy) }
     it { is_expected.to belong_to(:trip) }

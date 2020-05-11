@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe TripPolicy do
+describe TripPolicy do
   subject { described_class }
 
   permissions :index? do

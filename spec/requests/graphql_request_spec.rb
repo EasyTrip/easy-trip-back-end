@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Rspec.describe GraphqlController, type: :request do
+describe GraphqlController, type: :request do
   subject(:request) do
     gql_request(query,
                 variables: variables&.to_json,

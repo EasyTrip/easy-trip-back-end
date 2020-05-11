@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe User, type: :model do
+describe User, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:trips).dependent(:destroy).inverse_of(:creator) }
     it { is_expected.to have_many(:artificial_users).dependent(:destroy).inverse_of(:creator) }

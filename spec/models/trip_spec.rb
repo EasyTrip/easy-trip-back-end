@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Trip, type: :model do
+describe Trip, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:memberships).dependent(:destroy) }
     it { is_expected.to have_many(:expenses).dependent(:destroy) }

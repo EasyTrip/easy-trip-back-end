@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Queries::TripQuery, type: :request do
+describe Queries::TripQuery, type: :request do
   let(:query) do
     <<~GQL
       query {

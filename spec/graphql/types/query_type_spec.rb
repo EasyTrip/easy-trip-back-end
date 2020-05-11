@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Types::QueryType do
+describe Types::QueryType do
   subject { described_class }
 
   it { is_expected.to have_field(:current_user).of_type('User!') }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Role, type: :model do
+describe Role, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:users_roles).dependent(:destroy) }
     it { is_expected.to have_many(:users) }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Partaker, type: :model do
+describe Partaker, type: :model do
   describe 'associations' do
     it { is_expected.to have_one(:payment).dependent(:destroy) }
     it { is_expected.to belong_to(:expense) }
