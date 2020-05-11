@@ -8,8 +8,7 @@ module Queries
     argument :id, ID, required: true
 
     def resolve(id:)
-      authorize User
-      User.find(id)
+      User.find(id).tap { |user| authorize user }
     end
   end
 end
