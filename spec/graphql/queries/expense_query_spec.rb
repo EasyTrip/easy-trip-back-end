@@ -59,14 +59,6 @@ describe Queries::ExpenseQuery, type: :request do
       end
     end
 
-    context 'when user is guest' do
-      subject(:request) { gql_request(query) }
-
-      it 'returns errors' do
-        request
-        expect(json[:errors].first[:extensions][:code])
-          .to eq EasyTripBackEndSchema::AUTHENTICATION_ERROR_CODE
-      end
-    end
+    it_behaves_like 'when user is guest'
   end
 end

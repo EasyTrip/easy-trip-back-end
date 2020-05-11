@@ -43,14 +43,8 @@ describe Mutations::Trips::CreateTripMutation, type: :request do
       end
     end
 
-    context 'when user is guest' do
-      subject(:request) { gql_request(mutation) }
-
-      it 'returns errors' do
-        request
-        expect(json[:errors].first[:extensions][:code])
-          .to eq EasyTripBackEndSchema::AUTHENTICATION_ERROR_CODE
-      end
+    it_behaves_like 'when user is guest' do
+      let(:query) { mutation }
     end
   end
 end

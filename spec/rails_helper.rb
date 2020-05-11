@@ -23,4 +23,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include GraphqlRequestHelpers, type: :request
+  config.include SharedExamples::WhenUserIsGuest, type: :request
 end
