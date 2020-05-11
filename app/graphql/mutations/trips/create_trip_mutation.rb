@@ -2,19 +2,17 @@
 
 module Mutations
   module Trips
-    class UpdateTrip < Mutations::BaseMutation
+    class CreateTripMutation < Mutations::BaseMutation
       type Types::TripType
 
-      argument :id, ID, required: true
-      argument :name, String, required: false
+      argument :name, String, required: true
       argument :description, String, required: false
-      argument :creator_id, ID, required: false
       argument :start_date, GraphQL::Types::ISO8601DateTime, required: false
       argument :finish_date, GraphQL::Types::ISO8601DateTime, required: false
 
-      def resolve(id:, **attributes)
+      def resolve(**attributes)
         authorize Trip
-        Trip.find(id).tap { |trip| trip.update!(attributes) }
+        current_user.trips.create!(attributes)
       end
     end
   end

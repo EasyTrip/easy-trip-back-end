@@ -2,7 +2,7 @@
 
 module Mutations
   module Trips
-    class DestroyTrip < Mutations::BaseMutation
+    class DestroyTripMutation < Mutations::BaseMutation
       type Types::TripType
 
       argument :id, ID, required: true

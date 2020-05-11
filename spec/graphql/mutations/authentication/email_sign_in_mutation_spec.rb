@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Mutations::Authentication::EmailSignInMutation, type: :request do
-  let(:query) do
+  let(:mutation) do
     <<~GQL
       mutation {
         emailSignIn(email: "#{email}", password: "#{password}") {
@@ -19,7 +19,7 @@ describe Mutations::Authentication::EmailSignInMutation, type: :request do
   let(:password) { Faker::Internet.password }
 
   describe '#resolve' do
-    subject(:request) { gql_request(query) }
+    subject(:request) { gql_request(mutation) }
 
     it 'calls Authentication::EmailSignInService' do
       expect(::Authentication::EmailSignInService).to receive(:call).with(email, password)

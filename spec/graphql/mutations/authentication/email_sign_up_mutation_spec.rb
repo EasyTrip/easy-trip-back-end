@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Mutations::Authentication::EmailSignUpMutation, type: :request do
-  let(:query) do
+  let(:mutation) do
     <<~GQL
       mutation {
         emailSignUp(email: "#{email}",
@@ -22,7 +22,7 @@ describe Mutations::Authentication::EmailSignUpMutation, type: :request do
   end
 
   describe '#resolve' do
-    subject(:request) { gql_request(query) }
+    subject(:request) { gql_request(mutation) }
 
     let(:email) { Faker::Internet.email }
     let(:first_name) { Faker::Name.first_name }

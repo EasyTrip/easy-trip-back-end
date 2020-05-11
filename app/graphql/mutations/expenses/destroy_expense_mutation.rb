@@ -2,7 +2,7 @@
 
 module Mutations
   module Expenses
-    class DestroyExpense < Mutations::BaseMutation
+    class DestroyExpenseMutation < Mutations::BaseMutation
       type Types::ExpenseType
 
       argument :id, ID, required: true

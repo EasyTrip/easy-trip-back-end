@@ -2,7 +2,7 @@
 
 module Mutations
   module Expenses
-    class CreateExpense < Mutations::BaseMutation
+    class CreateExpenseMutation < Mutations::BaseMutation
       type Types::ExpenseType
 
       argument :trip_id, ID, required: true
