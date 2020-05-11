@@ -6,7 +6,7 @@ class ExpensePolicy < ApplicationPolicy
   end
 
   def show?
-    not_guest?
+    not_guest? && accessible?
   end
 
   def create?
@@ -14,10 +14,16 @@ class ExpensePolicy < ApplicationPolicy
   end
 
   def update?
-    not_guest?
+    not_guest? && accessible?
   end
 
   def destroy?
-    not_guest?
+    not_guest? && accessible?
+  end
+
+  private
+
+  def accessible?
+    record.trip.creator == user || admin?
   end
 end
