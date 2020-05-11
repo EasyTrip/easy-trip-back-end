@@ -26,7 +26,7 @@ describe Queries::ExpenseQuery, type: :request do
   describe '#resolve' do
     subject(:request) { valid_gql_request(query, user) }
 
-    context 'when user is authenticated and has access to expese' do
+    context 'when user is authenticated and has access to expense' do
       let(:user) { expense.trip.creator }
 
       it 'returns correct expense' do

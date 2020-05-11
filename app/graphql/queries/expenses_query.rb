@@ -7,7 +7,7 @@ module Queries
 
     def resolve
       authorize Expense
-      Expense.all
+      Expense.joins(:trip).where(trips: { creator: current_user })
     end
   end
 end
