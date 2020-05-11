@@ -36,4 +36,25 @@ describe TripPolicy do
       it { is_expected.not_to permit(user, trip) }
     end
   end
+
+  describe described_class::Scope do
+    subject(:scope) { described_class.new(user, Trip).resolve }
+
+    let(:trips) { create_pair(:trip) }
+    let(:user) { trips.first.creator }
+
+    context 'when user is admin' do
+      before { user.add_role(Role::ADMIN) }
+
+      it 'returns all trips' do
+        expect(scope.count).to eq trips.count
+      end
+    end
+
+    context 'when user is not admin' do
+      it 'returns one trip' do
+        expect(scope.count).to eq 1
+      end
+    end
+  end
 end
