@@ -6,6 +6,7 @@ describe Queries::UserQuery, type: :request do
       query {
         user(id: #{user_id}) {
           id
+          email
           firstName
           lastName
           signInCount
@@ -26,6 +27,7 @@ describe Queries::UserQuery, type: :request do
       it 'returns correct user' do
         request
         expect(json[:data][:user]).to include(id: user.id.to_s,
+                                              email: user.email,
                                               firstName: user.first_name,
                                               lastName: user.last_name,
                                               signInCount: user.sign_in_count,
