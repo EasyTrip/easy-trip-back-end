@@ -8,8 +8,7 @@ module Mutations
       argument :id, ID, required: true
 
       def resolve(id:)
-        authorize Trip
-        Trip.find(id).destroy!
+        Trip.find(id).tap { |trip| authorize trip }.destroy!
       end
     end
   end

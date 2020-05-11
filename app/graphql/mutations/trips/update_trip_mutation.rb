@@ -13,8 +13,7 @@ module Mutations
       argument :finish_date, GraphQL::Types::ISO8601DateTime, required: false
 
       def resolve(id:, **attributes)
-        authorize Trip
-        Trip.find(id).tap { |trip| trip.update!(attributes) }
+        Trip.find(id).tap { |trip| authorize trip }.tap { |trip| trip.update!(attributes) }
       end
     end
   end
