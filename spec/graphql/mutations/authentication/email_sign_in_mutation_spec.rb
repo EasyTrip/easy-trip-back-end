@@ -18,7 +18,6 @@ describe Mutations::Authentication::EmailSignInMutation, type: :request do
   let(:email) { Faker::Internet.email }
   let(:password) { Faker::Internet.password }
 
-
   describe '#resolve' do
     subject(:request) { gql_request(query) }
 
