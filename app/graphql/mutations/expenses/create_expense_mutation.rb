@@ -9,11 +9,11 @@ module Mutations
       argument :name, String, required: true
       argument :description, String, required: false
       argument :price, Float, required: true
-      argument :currency, String, required: false
+      argument :price_currency, String, required: false
 
       def resolve(trip_id:, **attributes)
         authorize Expense
-        Trip.find(trip_id).expenses.create!(attributes)
+        Trip.find(trip_id).tap { |trip| authorize trip, :update? }.expenses.create!(attributes)
       end
     end
   end
