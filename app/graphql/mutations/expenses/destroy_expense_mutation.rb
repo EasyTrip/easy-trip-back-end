@@ -8,8 +8,7 @@ module Mutations
       argument :id, ID, required: true
 
       def resolve(id:)
-        authorize Expense
-        Expense.find(id).destroy!
+        Expense.find(id).tap { |expense| authorize expense }.destroy!
       end
     end
   end

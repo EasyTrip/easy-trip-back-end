@@ -10,11 +10,12 @@ module Mutations
       argument :name, String, required: false
       argument :description, String, required: false
       argument :price, Float, required: false
-      argument :currency, String, required: false
+      argument :price_currency, String, required: false
 
       def resolve(id:, **attributes)
-        authorize Expense
-        Expense.find(id).tap { |expense| expense.update!(attributes) }
+        Expense.find(id)
+               .tap { |expense| authorize expense }
+               .tap { |expense| expense.update!(attributes) }
       end
     end
   end

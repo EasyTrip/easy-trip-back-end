@@ -48,7 +48,7 @@ describe Mutations::Trips::UpdateTripMutation, type: :request do
       subject(:request) { gql_request(mutation) }
 
       it 'does not change trip' do
-        expect { request }.not_to change(trip, :reload)
+        expect { request }.not_to(change { trip.reload.attributes })
       end
 
       include_examples 'when user is guest' do

@@ -38,10 +38,10 @@ describe Mutations::Expenses::CreateExpenseMutation, type: :request do
       it 'returns a trip' do
         request
         expect(json[:data][:createExpense]).to include(id: kind_of(String),
-                                                    name: name,
-                                                    description: description,
-                                                    price: price.to_s,
-                                                    priceCurrency: price_currency)
+                                                       name: name,
+                                                       description: description,
+                                                       price: price.to_s,
+                                                       priceCurrency: price_currency)
       end
     end
 
