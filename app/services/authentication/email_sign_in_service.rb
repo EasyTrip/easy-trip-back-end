@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Authentication
-  class EmailSignIn < BaseService
+  class EmailSignInService < BaseService
     EXPIRATION_DAYS = 7
 
     def call

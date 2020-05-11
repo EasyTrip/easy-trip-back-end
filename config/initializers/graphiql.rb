@@ -2,6 +2,6 @@
 
 if Rails.env.development?
   GraphiQL::Rails.config.headers['Authorization'] = lambda do |_context|
-    "Bearer #{Authentication::EmailSignIn.call('admin@example.com', 'admin')[:auth_token]}"
+    "Bearer #{Authentication::EmailSignInService.call('admin@example.com', 'admin')[:auth_token]}"
   end
 end

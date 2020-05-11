@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Authentication::EmailSignIn do
+describe Authentication::EmailSignInService do
   describe '.call' do
     let!(:user) { create(:user, email_identity_attributes: { email: email, password: password }) }
     let(:email) { Faker::Internet.email }

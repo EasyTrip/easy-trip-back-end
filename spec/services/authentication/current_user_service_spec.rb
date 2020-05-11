@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-describe Authentication::CurrentUser do
+describe Authentication::CurrentUserService do
   subject(:current_user) { described_class.call("Bearer #{auth_token}") }
 
   describe '.call' do
     let(:user) { create(:user) }
 
     context 'with valid token' do
-      let(:expiration) { Authentication::EmailSignIn::EXPIRATION_DAYS.days.from_now.to_i }
+      let(:expiration) { Authentication::EmailSignInService::EXPIRATION_DAYS.days.from_now.to_i }
       let(:auth_token) { JsonWebToken.encode(user_id: user.id, exp: expiration) }
 
       it { is_expected.to eq user }
@@ -31,7 +31,7 @@ describe Authentication::CurrentUser do
     end
 
     context 'with invalid token without user_id' do
-      let(:expiration) { Authentication::EmailSignIn::EXPIRATION_DAYS.days.from_now.to_i }
+      let(:expiration) { Authentication::EmailSignInService::EXPIRATION_DAYS.days.from_now.to_i }
       let(:auth_token) { JsonWebToken.encode(exp: expiration) }
 
       it 'raises expiration error' do

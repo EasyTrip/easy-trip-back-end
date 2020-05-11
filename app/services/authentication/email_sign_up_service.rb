@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Authentication
-  class EmailSignUp < BaseService
+  class EmailSignUpService < BaseService
     def call
       User.create!(first_name: first_name,
                    last_name: last_name,

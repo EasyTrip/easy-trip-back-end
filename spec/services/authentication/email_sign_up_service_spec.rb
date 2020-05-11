@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Authentication::EmailSignUp do
+describe Authentication::EmailSignUpService do
   subject(:sign_up) do
     described_class.call(email: email,
                          first_name: first_name,

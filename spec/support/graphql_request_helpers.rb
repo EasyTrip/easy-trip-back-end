@@ -16,7 +16,7 @@ module GraphqlRequestHelpers
   end
 
   def valid_headers(user)
-    exp = Authentication::EmailSignIn::EXPIRATION_DAYS.days.from_now.to_i
+    exp = Authentication::EmailSignInService::EXPIRATION_DAYS.days.from_now.to_i
     jwt = JsonWebToken.encode(user_id: user.id, exp: exp)
     { 'Authorization' => "Bearer #{jwt}" }
   end

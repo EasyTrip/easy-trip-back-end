@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Authentication
-  class CurrentUser < BaseService
+  class CurrentUserService < BaseService
     def call
       return User.find(payload[:user_id]) if user_id_in_token?
 

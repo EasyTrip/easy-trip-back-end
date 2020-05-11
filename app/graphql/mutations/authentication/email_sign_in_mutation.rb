@@ -10,7 +10,7 @@ module Mutations
       field :user, Types::UserType, null: false
 
       def resolve(email:, password:)
-        ::Authentication::EmailSignIn.call(email, password)
+        ::Authentication::EmailSignInService.call(email, password)
       end
     end
   end

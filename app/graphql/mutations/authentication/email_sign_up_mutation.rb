@@ -12,7 +12,7 @@ module Mutations
       argument :password_confirmation, String, required: true
 
       def resolve(**attributes)
-        ::Authentication::EmailSignUp.call(attributes)
+        ::Authentication::EmailSignUpService.call(attributes)
       end
     end
   end

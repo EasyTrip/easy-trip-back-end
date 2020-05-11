@@ -22,8 +22,8 @@ describe Mutations::Authentication::EmailSignInMutation, type: :request do
   describe '#resolve' do
     subject(:request) { gql_request(query) }
 
-    it 'calls Authentication::EmailSignIn Service' do
-      expect(::Authentication::EmailSignIn).to receive(:call).with(email, password)
+    it 'calls Authentication::EmailSignInService' do
+      expect(::Authentication::EmailSignInService).to receive(:call).with(email, password)
       request
     end
 
