@@ -3,7 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+# Dynamically retrieve version from .ruby-version file
+ruby File.open('.ruby-version').readline.chomp.delete_prefix('ruby-').delete_suffix('@easy-trip')
 
 gem 'rails', '~> 6.0.0'
 
