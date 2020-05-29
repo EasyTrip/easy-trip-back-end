@@ -32,9 +32,6 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*
 
-Layout/LineLength:
-  Max: 100
-
 # rubocop-i18n
 RailsI18n:
   Enabled: true
