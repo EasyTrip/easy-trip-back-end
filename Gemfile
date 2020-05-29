@@ -9,7 +9,7 @@ ruby File.open('.ruby-version').readline.chomp.delete_prefix('ruby-').delete_suf
 gem 'rails', '~> 6.0.3'
 
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
