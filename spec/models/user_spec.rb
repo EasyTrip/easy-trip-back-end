@@ -4,7 +4,7 @@ describe User, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:trips).dependent(:destroy).inverse_of(:creator) }
     it { is_expected.to have_many(:artificial_users).dependent(:destroy).inverse_of(:creator) }
-    it { is_expected.to have_many(:memberships).dependent(:destroy) }
+    it { is_expected.to have_many(:trip_memberships).dependent(:destroy) }
     it { is_expected.to have_one(:email_identity).dependent(:destroy) }
   end
 

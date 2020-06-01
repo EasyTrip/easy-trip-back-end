@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Trip < ApplicationRecord
-  has_many :memberships, dependent: :destroy
+  has_many :trip_memberships, dependent: :destroy
   has_many :expenses, dependent: :destroy
   belongs_to :creator, class_name: 'User', inverse_of: :trips
 

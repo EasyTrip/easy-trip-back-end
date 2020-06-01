@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Membership, type: :model do
+describe TripMembership, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:partakers).dependent(:destroy) }
     it { is_expected.to belong_to(:trip) }
@@ -17,7 +17,7 @@ describe Membership, type: :model do
     end
 
     describe 'uniqueness' do
-      subject { create(:membership, :with_artificial_user) }
+      subject { create(:trip_membership, :with_artificial_user) }
 
       it { is_expected.to validate_uniqueness_of(:member_id).scoped_to(%i[trip_id member_type]) }
     end

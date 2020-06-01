@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :partaker do
     expense
-    membership
+    trip_membership
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Membership < ApplicationRecord
+class TripMembership < ApplicationRecord
   MEMBER_TYPES = [User, ArtificialUser].map(&:name).freeze
 
   has_many :partakers, dependent: :destroy

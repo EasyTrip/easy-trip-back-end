@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_many :trips, foreign_key: :creator_id, dependent: :destroy, inverse_of: :creator
   has_many :artificial_users, foreign_key: :creator_id, dependent: :destroy, inverse_of: :creator
-  has_many :memberships, as: :member, dependent: :destroy
+  has_many :trip_memberships, as: :member, dependent: :destroy
   has_one :email_identity, dependent: :destroy
 
   validates :first_name, :last_name, :email_identity, presence: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_154810) do
+ActiveRecord::Schema.define(version: 2020_06_01_061414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,24 +66,13 @@ ActiveRecord::Schema.define(version: 2020_04_21_154810) do
     t.index ["trip_id"], name: "index_expenses_on_trip_id"
   end
 
-  create_table "memberships", force: :cascade do |t|
-    t.bigint "trip_id", null: false
-    t.string "member_type", null: false
-    t.bigint "member_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id", "trip_id", "member_type"], name: "index_memberships_on_member_id_and_trip_id_and_member_type", unique: true
-    t.index ["member_type", "member_id"], name: "index_memberships_on_member_type_and_member_id"
-    t.index ["trip_id"], name: "index_memberships_on_trip_id"
-  end
-
   create_table "partakers", force: :cascade do |t|
     t.bigint "expense_id", null: false
-    t.bigint "membership_id", null: false
+    t.bigint "trip_membership_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["expense_id"], name: "index_partakers_on_expense_id"
-    t.index ["membership_id"], name: "index_partakers_on_membership_id"
+    t.index ["trip_membership_id"], name: "index_partakers_on_trip_membership_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -103,6 +92,17 @@ ActiveRecord::Schema.define(version: 2020_04_21_154810) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
+  create_table "trip_memberships", force: :cascade do |t|
+    t.bigint "trip_id", null: false
+    t.string "member_type", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id", "trip_id", "member_type"], name: "index_trip_memberships_on_member_id_and_trip_id_and_member_type", unique: true
+    t.index ["member_type", "member_id"], name: "index_trip_memberships_on_member_type_and_member_id"
+    t.index ["trip_id"], name: "index_trip_memberships_on_trip_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -142,10 +142,10 @@ ActiveRecord::Schema.define(version: 2020_04_21_154810) do
   add_foreign_key "artificial_users", "users", column: "creator_id"
   add_foreign_key "email_identities", "users"
   add_foreign_key "expenses", "trips"
-  add_foreign_key "memberships", "trips"
   add_foreign_key "partakers", "expenses"
-  add_foreign_key "partakers", "memberships"
+  add_foreign_key "partakers", "trip_memberships"
   add_foreign_key "payments", "partakers"
+  add_foreign_key "trip_memberships", "trips"
   add_foreign_key "trips", "users", column: "creator_id"
   add_foreign_key "users_roles", "roles"
   add_foreign_key "users_roles", "users"

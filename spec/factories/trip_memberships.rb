@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :membership do
+  factory :trip_membership do
     trip
     # default member for automatically created chained factories
     association :member, factory: :artificial_user
