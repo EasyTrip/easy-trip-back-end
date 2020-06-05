@@ -6,6 +6,7 @@ class Friendship < ApplicationRecord
 
   enum status: { pending: 0, approved: 1, declined: 2, blocked: 3 }
 
+  validates :status, presence: true
   validates :friend_id, uniqueness: { scope: :user_id }
   validate :user_not_eq_friend
 

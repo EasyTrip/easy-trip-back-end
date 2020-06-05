@@ -10,6 +10,8 @@ describe Friendship, type: :model do
   end
 
   describe 'validations' do
+    it { is_expected.to validate_presence_of(:status) }
+
     describe '#user_not_eq_friend' do
       subject { build_stubbed(:friendship, user: user, friend: user) }
 
