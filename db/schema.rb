@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_061414) do
+ActiveRecord::Schema.define(version: 2020_06_05_184548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,17 @@ ActiveRecord::Schema.define(version: 2020_06_01_061414) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["trip_id"], name: "index_expenses_on_trip_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "friend_id", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["friend_id", "user_id"], name: "index_friendships_on_friend_id_and_user_id", unique: true
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "partakers", force: :cascade do |t|
@@ -142,6 +153,8 @@ ActiveRecord::Schema.define(version: 2020_06_01_061414) do
   add_foreign_key "artificial_users", "users", column: "creator_id"
   add_foreign_key "email_identities", "users"
   add_foreign_key "expenses", "trips"
+  add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "partakers", "expenses"
   add_foreign_key "partakers", "trip_memberships"
   add_foreign_key "payments", "partakers"
