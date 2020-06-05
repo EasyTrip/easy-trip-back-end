@@ -13,4 +13,6 @@ describe Types::MutationType do
   it { is_expected.to have_field(:create_expense).of_type('Expense') }
   it { is_expected.to have_field(:update_expense).of_type('Expense') }
   it { is_expected.to have_field(:destroy_expense).of_type('Expense') }
+
+  it { is_expected.to have_field(:create_trip_membership).of_type('TripMembership') }
 end

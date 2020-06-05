@@ -13,5 +13,7 @@ module Types
     field :create_expense, mutation: Mutations::Expenses::CreateExpenseMutation
     field :update_expense, mutation: Mutations::Expenses::UpdateExpenseMutation
     field :destroy_expense, mutation: Mutations::Expenses::DestroyExpenseMutation
+    # trip_memberships
+    field :create_trip_membership, mutation: Mutations::TripMemberships::CreateTripMembershipMutation
   end
 end

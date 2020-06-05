@@ -31,7 +31,7 @@ describe Mutations::Expenses::CreateExpenseMutation, type: :request do
     let(:price_currency) { 'USD' }
 
     context 'when user is authenticated' do
-      it 'creates a expense' do
+      it 'creates an expense' do
         expect { request }.to change(Expense, :count).by 1
       end
 
