@@ -43,7 +43,7 @@ RSpec/ExampleLength:
   Max: 20
 
 RSpec/NestedGroups:
-  MaxNesting: 4
+  Max: 4
 
 # rubocop doesn't understand custom example group 'permissions'
 # we can remove this exclusion after issue is resolved
