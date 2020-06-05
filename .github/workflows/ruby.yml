@@ -129,4 +129,4 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: postgres
           RAILS_ENV: test
-        run: bundle exec rspec
+        run: CI=true bundle exec rspec

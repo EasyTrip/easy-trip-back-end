@@ -33,6 +33,10 @@ describe Mutations::Trips::CreateTripMutation, type: :request do
         expect { request }.to change(Trip, :count).by 1
       end
 
+      it 'creates trip_membership' do
+        expect { request }.to change(TripMembership, :count).by 1
+      end
+
       it 'returns a trip' do
         request
         expect(json[:data][:createTrip]).to include(id: kind_of(String),

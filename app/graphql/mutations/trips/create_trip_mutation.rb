@@ -12,7 +12,7 @@ module Mutations
 
       def resolve(**attributes)
         authorize Trip
-        current_user.trips.create!(attributes)
+        ::Trips::CreateService.call(current_user, **attributes)
       end
     end
   end
