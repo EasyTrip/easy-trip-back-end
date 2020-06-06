@@ -2,7 +2,7 @@
 
 module Queries
   class UsersQuery < BaseQuery
-    type [Types::UserType], null: false
+    type Types::UserType.connection_type, null: false
     description 'Returns a list of users in the easy trip'
 
     def resolve

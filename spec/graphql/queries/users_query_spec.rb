@@ -5,12 +5,14 @@ describe Queries::UsersQuery, type: :request do
     <<~GQL
       query {
         users {
-          id
-          firstName
-          lastName
-          signInCount
-          currentSignInAt
-          lastSignInAt
+          nodes {
+            id
+            firstName
+            lastName
+            signInCount
+            currentSignInAt
+            lastSignInAt
+          }
         }
       }
     GQL
@@ -24,17 +26,17 @@ describe Queries::UsersQuery, type: :request do
     context 'when user is logged in' do
       it 'returns correct users' do
         request
-        expect(json[:data][:users].first).to include(id: user.id.to_s,
-                                                     firstName: user.first_name,
-                                                     lastName: user.last_name,
-                                                     signInCount: user.sign_in_count,
-                                                     currentSignInAt: user.current_sign_in_at,
-                                                     lastSignInAt: user.last_sign_in_at)
+        expect(json[:data][:users][:nodes].first).to include(id: user.id.to_s,
+                                                             firstName: user.first_name,
+                                                             lastName: user.last_name,
+                                                             signInCount: user.sign_in_count,
+                                                             currentSignInAt: user.current_sign_in_at,
+                                                             lastSignInAt: user.last_sign_in_at)
       end
 
       it 'returns 1 user' do
         request
-        expect(json[:data][:users].count).to eq 1
+        expect(json[:data][:users][:nodes].count).to eq 1
       end
     end
 
