@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_184548) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users_roles", id: false, force: :cascade do |t|
+  create_table "users_roles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "role_id", null: false
     t.datetime "created_at", precision: 6, null: false
