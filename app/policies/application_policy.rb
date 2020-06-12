@@ -44,7 +44,7 @@ class ApplicationPolicy
   private
 
   def admin?
-    user.has_role?(Role::ADMIN)
+    user.has_role?(:admin)
   end
 
   def guest?

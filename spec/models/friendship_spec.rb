@@ -11,6 +11,7 @@ describe Friendship, type: :model do
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:status) }
+    it { is_expected.to define_enum_for(:status).with_values(pending: 0, approved: 1, declined: 2, blocked: 3) }
 
     describe '#user_not_eq_friend' do
       subject { build_stubbed(:friendship, user: user, friend: user) }

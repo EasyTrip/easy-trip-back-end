@@ -54,7 +54,7 @@ describe Queries::TripQuery, type: :request do
     context 'when user is admin' do
       let(:user) { create(:trip).creator }
 
-      before { user.add_role(Role::ADMIN) }
+      before { user.add_role(:admin) }
 
       it 'returns correct trip' do
         request

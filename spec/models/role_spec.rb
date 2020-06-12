@@ -10,11 +10,11 @@ describe Role, type: :model do
   end
 
   describe 'validations' do
+    it { is_expected.to define_enum_for(:name).with_values(admin: 'admin').backed_by_column_of_type(:string) }
+
     describe 'inclusion' do
-      let(:roles_whitelist) { described_class::WHITELIST }
       let(:resource_types) { Rolify.resource_types }
 
-      it { is_expected.to validate_inclusion_of(:name).in_array(roles_whitelist) }
       it { is_expected.to validate_inclusion_of(:resource_type).in_array(resource_types).allow_nil }
     end
   end
