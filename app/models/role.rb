@@ -10,4 +10,5 @@ class Role < ApplicationRecord
   enum name: { admin: 'admin' }
 
   validates :resource_type, inclusion: { in: Rolify.resource_types }, allow_nil: true
+  validates :name, presence: true
 end
