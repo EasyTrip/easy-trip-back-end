@@ -6,9 +6,10 @@ module Types
     possible_types UserType, ArtificialUserType
 
     def self.resolve_type(object, _context)
-      if object.is_a?(User)
+      case object
+      when User
         UserType
-      elsif object.is_a?(ArtificialUser)
+      when ArtificialUser
         ArtificialUserType
       end
     end

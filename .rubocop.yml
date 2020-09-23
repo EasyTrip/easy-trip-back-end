@@ -63,3 +63,9 @@ RSpec/FilePath:
 RSpec/DescribeClass:
   Exclude:
     - 'spec/requests/**/*.rb'
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+
+Lint/MissingSuper:
+  Enabled: false

@@ -14,7 +14,7 @@ module PunditHelpers
 
   def guess_action!
     action = if is_a?(::Mutations::BaseMutation)
-               mutation_class_action + '?'
+               "#{mutation_class_action}?"
              elsif is_a?(::Queries::BaseQuery)
                singular?(query_class_action) ? 'show?' : 'index?'
              end
