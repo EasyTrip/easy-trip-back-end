@@ -11,7 +11,7 @@ FactoryBot.define do
 
     factory :admin do
       after(:build) do |user|
-        user.add_role(:admin)
+        user.add_role(Role::ADMIN)
       end
     end
   end

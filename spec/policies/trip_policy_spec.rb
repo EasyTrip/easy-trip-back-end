@@ -44,7 +44,7 @@ describe TripPolicy do
     let(:user) { trips.first.creator }
 
     context 'when user is admin' do
-      before { user.add_role(:admin) }
+      before { user.add_role(Role::ADMIN) }
 
       it 'returns all trips' do
         expect(scope.count).to eq trips.count

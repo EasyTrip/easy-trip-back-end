@@ -29,7 +29,7 @@ class TripPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      if user.has_role?(:admin)
+      if user.has_role?(Role::ADMIN)
         scope.all
       else
         scope.where(creator: user)

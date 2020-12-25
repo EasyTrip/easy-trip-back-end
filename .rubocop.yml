@@ -32,9 +32,7 @@ Metrics/BlockLength:
     - spec/**/*
 
 # rubocop-i18n
-RailsI18n:
-  Enabled: true
-GetText:
+I18n/GetText/DecorateFunctionMessage:
   Enabled: false
 
 # rubocop-rspec

@@ -32,9 +32,19 @@ class Seed
         next
       end
       make_friends
+      create_admin
     end
 
     private
+
+    def create_admin
+      user = Authentication::EmailSignUpService.call(email: 'admin@example.com',
+                                                     first_name: Faker::Name.first_name,
+                                                     last_name: Faker::Name.last_name,
+                                                     password: 'admin',
+                                                     password_confirmation: 'admin')
+      user.add_role(Role::ADMIN)
+    end
 
     def create_user
       Authentication::EmailSignUpService.call(email: Faker::Internet.email,

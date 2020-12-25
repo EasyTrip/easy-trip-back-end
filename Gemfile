@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Dynamically retrieve version from .ruby-version file
 ruby File.open('.ruby-version').readline.chomp.delete_prefix('ruby-').delete_suffix('@easy-trip')
 
-gem 'rails', '~> 6.0.3'
+gem 'rails'
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
