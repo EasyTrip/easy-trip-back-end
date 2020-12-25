@@ -6,21 +6,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Dynamically retrieve version from .ruby-version file
 ruby File.open('.ruby-version').readline.chomp.delete_prefix('ruby-').delete_suffix('@easy-trip')
 
-gem 'rails'
-
-gem 'pg'
-gem 'puma'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
 gem 'bcrypt'
-gem 'jwt'
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 gem 'bootsnap', require: false
 gem 'graphql'
+gem 'jwt'
 gem 'money-rails'
+gem 'pg'
+gem 'puma'
 gem 'pundit'
 gem 'rack-cors'
+gem 'rails'
 gem 'rolify'
 
 group :development, :test do
@@ -43,7 +38,6 @@ group :development do
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
-
   # Add this to fix issue from v 4.0. Should be removed after fix in
   # https://github.com/rails/sprockets-rails/issues/444
   # https://github.com/rails/sprockets-rails/issues/443
