@@ -15,8 +15,17 @@ ActiveStorage::Blob:
   checksum:
     NullConstraintChecker:
       enabled: false
+  variant_records:
+    MissingIndexChecker:
+      enabled: false
+  index_active_storage_blobs_on_key:
+    UniqueIndexChecker:
+      enabled: false
 
 ActiveStorage::Attachment:
   name:
     NullConstraintChecker:
+      enabled: false
+  index_active_storage_attachments_uniqueness:
+    UniqueIndexChecker:
       enabled: false
