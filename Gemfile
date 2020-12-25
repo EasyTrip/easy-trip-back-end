@@ -8,15 +8,15 @@ ruby File.open('.ruby-version').readline.chomp.delete_prefix('ruby-').delete_suf
 
 gem 'rails'
 
-gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
+gem 'pg'
+gem 'puma'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 gem 'jwt'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', require: false
 gem 'graphql'
 gem 'money-rails'
 gem 'pundit'
@@ -40,9 +40,9 @@ end
 group :development do
   gem 'database_consistency', require: false
   gem 'graphiql-rails'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
 
   # Add this to fix issue from v 4.0. Should be removed after fix in
   # https://github.com/rails/sprockets-rails/issues/444

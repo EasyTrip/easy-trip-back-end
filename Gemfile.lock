@@ -91,10 +91,9 @@ GEM
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jwt (2.2.2)
-    listen (3.1.5)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
+    listen (3.3.3)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.8.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -127,7 +126,8 @@ GEM
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    puma (3.12.6)
+    puma (5.1.1)
+      nio4r (~> 2.0)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
     rack (2.2.3)
@@ -216,7 +216,6 @@ GEM
     rubocop-thread_safety (0.4.2)
       rubocop (>= 0.53.0)
     ruby-progressbar (1.10.1)
-    ruby_dep (1.5.0)
     shoulda-matchers (4.4.1)
       activesupport (>= 4.2.0)
     simplecov (0.20.0)
@@ -249,8 +248,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt (~> 3.1.7)
-  bootsnap (>= 1.4.2)
+  bcrypt
+  bootsnap
   database_cleaner
   database_consistency
   factory_bot_rails
@@ -258,11 +257,11 @@ DEPENDENCIES
   graphiql-rails
   graphql
   jwt
-  listen (>= 3.0.5, < 3.2)
+  listen
   money-rails
-  pg (>= 0.18, < 2.0)
+  pg
   pry
-  puma (~> 3.11)
+  puma
   pundit
   rack-cors
   rails
@@ -279,7 +278,7 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   spring
-  spring-watcher-listen (~> 2.0.0)
+  spring-watcher-listen
   sprockets (~> 3.0)
 
 RUBY VERSION
