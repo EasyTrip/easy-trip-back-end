@@ -4,8 +4,8 @@ module Callable
   extend ActiveSupport::Concern
 
   class_methods do
-    def call(*args, **kwargs)
-      new(*args, **kwargs).call
+    def call(...)
+      new(...).call
     end
   end
 
