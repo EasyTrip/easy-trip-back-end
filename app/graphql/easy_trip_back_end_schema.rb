@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class EasyTripBackEndSchema < GraphQL::Schema
-  use GraphQL::Pagination::Connections
   default_max_page_size 50
 
   use GraphQL::Schema::Timeout, max_seconds: 5
