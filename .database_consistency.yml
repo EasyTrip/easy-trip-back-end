@@ -2,30 +2,8 @@ DatabaseConsistencySettings:
   color: true
   log_level: debug
 
-ActiveStorage::Blob:
-  key:
-    NullConstraintChecker:
-      enabled: false
-  filename:
-    NullConstraintChecker:
-      enabled: false
-  byte_size:
-    NullConstraintChecker:
-      enabled: false
-  checksum:
-    NullConstraintChecker:
-      enabled: false
-  variant_records:
-    MissingIndexChecker:
-      enabled: false
-  index_active_storage_blobs_on_key:
-    UniqueIndexChecker:
-      enabled: false
-
 ActiveStorage::Attachment:
-  name:
-    NullConstraintChecker:
-      enabled: false
-  index_active_storage_attachments_uniqueness:
-    UniqueIndexChecker:
-      enabled: false
+  enabled: false
+
+ActiveStorage::Blob:
+  enabled: false
