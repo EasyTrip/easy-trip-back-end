@@ -5,7 +5,6 @@ describe Friendship, type: :model do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to belong_to(:friend).class_name(User.name) }
     it { is_expected.to have_db_index(:user_id) }
-    it { is_expected.to have_db_index(:friend_id) }
     it { is_expected.to have_db_index(%i[friend_id user_id]).unique }
   end
 
