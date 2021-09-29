@@ -24,6 +24,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rubocop-faker'
   gem 'rubocop-i18n'
   gem 'rubocop-performance'
   gem 'rubocop-rails'

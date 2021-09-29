@@ -5,6 +5,7 @@ require:
   - rubocop-rake
   - rubocop-rspec
   - rubocop-thread_safety
+  - rubocop-faker
 
 inherit_from: .rubocop_todo.yml
 
